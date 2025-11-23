@@ -1,16 +1,69 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scientific Calculator Web App</title>
-    <meta property="og:image" content="https://bolt.new/static/og_default.png">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://bolt.new/static/og_default.png">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="display-section">
+                <input type="text" id="display" class="display" readonly placeholder="0">
+            </div>
+
+            <div class="buttons-grid">
+                <button class="btn function" onclick="clearDisplay()">C</button>
+                <button class="btn function" onclick="deleteLast()">DEL</button>
+                <button class="btn function" onclick="appendOperator('(')">(</button>
+                <button class="btn function" onclick="appendOperator(')')">)</button>
+
+                <button class="btn function" onclick="calculateScientific('sin')">sin</button>
+                <button class="btn function" onclick="calculateScientific('cos')">cos</button>
+                <button class="btn function" onclick="calculateScientific('tan')">tan</button>
+                <button class="btn operator" onclick="appendOperator('÷')">÷</button>
+
+                <button class="btn function" onclick="calculateScientific('log')">log</button>
+                <button class="btn function" onclick="calculateScientific('ln')">ln</button>
+                <button class="btn function" onclick="appendOperator('Math.PI')">π</button>
+                <button class="btn operator" onclick="appendOperator('×')">×</button>
+
+                <button class="btn function" onclick="calculateScientific('sqrt')">√</button>
+                <button class="btn function" onclick="calculateScientific('square')">x²</button>
+                <button class="btn function" onclick="calculateScientific('reciprocal')">1/x</button>
+                <button class="btn operator" onclick="appendOperator('-')">-</button>
+
+                <button class="btn number" onclick="appendNumber('7')">7</button>
+                <button class="btn number" onclick="appendNumber('8')">8</button>
+                <button class="btn number" onclick="appendNumber('9')">9</button>
+                <button class="btn operator" onclick="appendOperator('+')">+</button>
+
+                <button class="btn number" onclick="appendNumber('4')">4</button>
+                <button class="btn number" onclick="appendNumber('5')">5</button>
+                <button class="btn number" onclick="appendNumber('6')">6</button>
+                <button class="btn function" onclick="calculateScientific('exp')">eˣ</button>
+
+                <button class="btn number" onclick="appendNumber('1')">1</button>
+                <button class="btn number" onclick="appendNumber('2')">2</button>
+                <button class="btn number" onclick="appendNumber('3')">3</button>
+                <button class="btn operator" onclick="appendOperator('%')">%</button>
+
+                <button class="btn number" onclick="appendNumber('0')">0</button>
+                <button class="btn number" onclick="appendNumber('.')">.</button>
+                <button class="btn equals" onclick="calculate()">=</button>
+            </div>
+        </div>
+
+        <div class="history-panel">
+            <div class="history-header">
+                <h3>History</h3>
+                <button class="btn-clear-history" onclick="clearHistory()">Clear All</button>
+            </div>
+            <div id="history-list" class="history-list"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
